@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="country">
+  <div class="name">
+    {{ country?.name ?? 'A country has no name' }}
+  </div>
+  <div class="capital">
+    {{ country?.capital ?? 'A country has no capital' }}
+  </div>
+  <div class="emoji">
+    {{ country?.emoji ?? 'A country has no flag emoji' }}
+  </div>
+</div>
