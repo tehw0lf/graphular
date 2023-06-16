@@ -1,0 +1,16 @@
+.card {
+  box-shadow: 3px 5px 5px lightgray;
+  border: 2px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 0.5rem;
+
+  display: grid;
+  grid-template-rows: 3;
+  grid-template-columns: 1;
+  grid-gap: 1rem;
+
+  div {
+    justify-self: center;
+    max-width: 300px;
+  }
+}
