@@ -1,10 +1,11 @@
 {
-  "root": "apps/graphular-e2e",
+  "name": "graphular-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/graphular-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
+      "executor": "@nx/cypress:cypress",
       "options": {
         "cypressConfig": "apps/graphular-e2e/cypress.json",
         "devServerTarget": "graphular:serve:development"
@@ -16,7 +17,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/graphular-e2e/**/*.{js,ts}"]

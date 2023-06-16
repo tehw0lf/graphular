@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "graphular": "apps/graphular",
-    "graphular-e2e": "apps/graphular-e2e"
-  }
-}
