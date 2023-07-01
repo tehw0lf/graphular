@@ -1,0 +1,46 @@
+name: Build graphular into docker image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install node
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: 16.x
+          registry-url: 'https://registry.npmjs.org'
+      - name: Enable pre and post scripts
+        run: npm config set enable-pre-post-scripts true
+      - name: Enable Nx SHAs
+        uses: nrwl/nx-set-shas@v2
+        with:
+          main-branch-name: main
+      - name: Install packages
+        run: npm install --frozen-lockfile
+      - name: Lint workspace
+        run: npx nx workspace-lint
+      - name: Check format
+        run: npm run format
+      - name: Lint
+        run: npm run affected:lint
+      - name: Test
+        run: npm run affected:test --ci --code-coverage
+      - name: Build on branch
+        if: ${{ github.event_name != 'push' }}
+        run: npm run affected:build
+      - name: Build on main
+        if: ${{ github.event_name == 'push' }}
+        run: npm affected:build --skip-nx-cache
+      - name: Build docker imaage
+        if: ${{ github.event_name == 'push' }}
+        run: docker build .
