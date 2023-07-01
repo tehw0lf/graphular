@@ -29,6 +29,6 @@ jobs:
       - name: Test
         run: npm run test --ci --code-coverage
       - name: Build on main
-        run: npm build --skip-nx-cache
+        run: npm run build --skip-nx-cache
       - name: Build docker imaage
         run: docker build .
