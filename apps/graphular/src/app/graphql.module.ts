@@ -4,6 +4,7 @@ import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 
 const uri = 'https://countries.trevorblades.com/graphql';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({ uri }),

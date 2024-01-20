@@ -28,6 +28,7 @@ export class CountriesComponent implements OnInit {
     this.countries = this.apollo
       .watchQuery({ query: GET_COUNTRIES })
       .valueChanges.pipe(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         map((result: any) => result.data && result.data.countries)
       );
   }
