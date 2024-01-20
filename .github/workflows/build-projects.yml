@@ -23,7 +23,7 @@ jobs:
       - name: Install packages
         run: npm install --frozen-lockfile --legacy-peer-deps
       - name: Lint workspace
-        run: npx nx workspace-lint
+        run: npx nx lint --workspace
       - name: Lint
         run: npm run lint
       - name: Test
