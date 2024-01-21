@@ -14,8 +14,6 @@ jobs:
         with:
           node-version: 20.9.0
           cache: 'npm'
-      - name: Enable pre and post scripts
-        run: npm config set enable-pre-post-scripts true
       - name: Install packages
         run: npm install --legacy-peer-deps
       - name: Lint workspace
