@@ -1,28 +1,25 @@
-name: Build graphular into docker image
+name: graphular pipeline
 
 on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20.9.0
-          cache: 'npm'
-      - name: Install packages
-        run: npm install --legacy-peer-deps
-      - name: Lint workspace
-        run: npx nx lint --workspace
-      - name: Lint
-        run: npm run lint
-      - name: Test
-        run: npm run test --ci --code-coverage
-      - name: Build on main
-        run: npm run build --skip-nx-cache
-      - name: Build docker imaage
-        run: docker build .
+    name: external workflow
+    uses: tehw0lf/workflows/.github/workflows/build-test-publish.yml@main
+    permissions:
+      actions: write
+      contents: write
+      packages: write
+    with:
+      tool: 'npm'
+      format: 'run format'
+      lint: 'run affected:lint'
+      test: 'run affected:test --ci --code-coverage'
+      build_branch: 'run affected:build'
+      build_main: 'run affected:build --skip-nx-cache'
+      event_name: ${{ github.event_name }}
+      skip_docker: true
