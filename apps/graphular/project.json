@@ -4,6 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/graphular/src",
   "prefix": "graphular",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -83,6 +84,5 @@
         "jestConfig": "apps/graphular/jest.config.ts"
       }
     }
-  },
-  "tags": []
+  }
 }
