@@ -15,9 +15,10 @@ const GET_COUNTRIES = gql`
 `;
 
 @Component({
-  selector: 'graphular-countries',
-  templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss'],
+    selector: 'graphular-countries',
+    templateUrl: './countries.component.html',
+    styleUrls: ['./countries.component.scss'],
+    standalone: false
 })
 export class CountriesComponent implements OnInit {
   countries: Observable<Country[]> | undefined;

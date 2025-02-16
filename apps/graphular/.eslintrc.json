@@ -24,7 +24,8 @@
             "prefix": "graphular",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@angular-eslint/prefer-standalone": "off"
       }
     },
     {
