@@ -22,4 +22,3 @@ jobs:
       build_branch: 'run affected:build'
       build_main: 'run affected:build --skip-nx-cache'
       event_name: ${{ github.event_name }}
-      skip_docker: true
