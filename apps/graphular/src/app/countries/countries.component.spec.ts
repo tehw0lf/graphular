@@ -1,14 +1,26 @@
+import { inject } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ApolloModule } from 'apollo-angular';
+import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+import { provideApollo } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
 
 import { CountriesComponent } from './countries.component';
+
+const uri = 'https://countries.trevorblades.com/graphql';
+function createApollo(): ApolloClientOptions<any> {
+  const httpLink = inject(HttpLink);
+  return {
+    link: httpLink.create({ uri }),
+    cache: new InMemoryCache(),
+  };
+}
 
 describe('CountriesComponent', () => {
   let fixture: ComponentFixture<CountriesComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CountriesComponent],
-      imports: [ApolloModule],
+      providers: [provideApollo(createApollo)],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CountriesComponent);

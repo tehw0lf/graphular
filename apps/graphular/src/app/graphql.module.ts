@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { inject, NgModule } from '@angular/core';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
-import { APOLLO_OPTIONS, ApolloModule } from 'apollo-angular';
+import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 
 const uri = 'https://countries.trevorblades.com/graphql';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
+export function createApollo(): ApolloClientOptions<any> {
+  const httpLink = inject(HttpLink);
   return {
     link: httpLink.create({ uri }),
     cache: new InMemoryCache(),
@@ -13,13 +15,6 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
 }
 
 @NgModule({
-  exports: [ApolloModule],
-  providers: [
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory: createApollo,
-      deps: [HttpLink],
-    },
-  ],
+  providers: [provideHttpClient(), provideApollo(createApollo)],
 })
 export class GraphQLModule {}
