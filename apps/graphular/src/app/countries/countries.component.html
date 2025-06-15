@@ -1,5 +1,7 @@
 <div class="cards">
-  <div class="card" *ngFor="let country of countries | async">
-    <graphular-country [country]="country"></graphular-country>
-  </div>
+  @for (country of countries | async; track country) {
+    <div class="card">
+      <graphular-country [country]="country"></graphular-country>
+    </div>
+  }
 </div>
