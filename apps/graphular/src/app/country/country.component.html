@@ -1,11 +1,13 @@
-<div class="card" *ngIf="country">
-  <div>
-    {{ country?.name ?? 'A country has no name' }}
+@if (country) {
+  <div class="card">
+    <div>
+      {{ country?.name ?? 'A country has no name' }}
+    </div>
+    <div>
+      {{ country?.capital ?? 'A country has no capital' }}
+    </div>
+    <div>
+      {{ country?.emoji ?? 'A country has no flag emoji' }}
+    </div>
   </div>
-  <div>
-    {{ country?.capital ?? 'A country has no capital' }}
-  </div>
-  <div>
-    {{ country?.emoji ?? 'A country has no flag emoji' }}
-  </div>
-</div>
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { map, Observable } from 'rxjs';
 
@@ -15,22 +15,21 @@ const GET_COUNTRIES = gql`
 `;
 
 @Component({
-    selector: 'graphular-countries',
-    templateUrl: './countries.component.html',
-    styleUrls: ['./countries.component.scss'],
-    standalone: false
+  selector: 'graphular-countries',
+  templateUrl: './countries.component.html',
+  styleUrls: ['./countries.component.scss'],
+  standalone: false,
 })
 export class CountriesComponent implements OnInit {
+  private readonly apollo: Apollo = inject(Apollo);
   countries: Observable<Country[]> | undefined;
-
-  constructor(private apollo: Apollo) {}
 
   ngOnInit(): void {
     this.countries = this.apollo
       .watchQuery({ query: GET_COUNTRIES })
       .valueChanges.pipe(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        map((result: any) => result.data && result.data.countries)
+        map((result: any) => result.data && result.data.countries),
       );
   }
 }
