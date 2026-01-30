@@ -82,7 +82,8 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/graphular"],
       "options": {
-        "jestConfig": "apps/graphular/jest.config.ts"
+        "jestConfig": "apps/graphular/jest.config.ts",
+        "tsConfig": "apps/graphular/tsconfig.spec.json"
       }
     }
   }
