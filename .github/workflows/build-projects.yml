@@ -25,4 +25,4 @@ jobs:
       build_branch: "run affected:build"
       build_main: "run affected:build --skip-nx-cache"
       event_name: ${{ github.event_name }}
-      cyclonedx_ignore_npm_errors: "true"
+      cyclonedx_ignore_npm_errors: true
