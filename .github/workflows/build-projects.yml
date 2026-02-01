@@ -24,5 +24,6 @@ jobs:
       test: "run affected:test --ci --code-coverage"
       build_branch: "run affected:build"
       build_main: "run affected:build --skip-nx-cache"
+      artifact_path: "dist"
       event_name: ${{ github.event_name }}
       cyclonedx_ignore_npm_errors: true
