@@ -22,8 +22,9 @@ jobs:
       format: "run format"
       lint: "run affected:lint"
       test: "run affected:test --ci --code-coverage"
-      build_branch: "run affected:build"
+      build_branch: "run build"
       build_main: "run affected:build --skip-nx-cache"
-      artifact_path: "dist"
+      artifact_path: "dist/apps"
+      docker_meta: '[{"name":"graphular","file":"Dockerfile"}]'
       cyclonedx_ignore_npm_errors: true
       npm_audit_omit_dev: true
