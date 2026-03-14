@@ -24,6 +24,6 @@ jobs:
       test: "run affected:test --ci --code-coverage"
       build_branch: "run affected:build"
       build_main: "run affected:build --skip-nx-cache"
-      artifact_path: "dist"
+      artifact_path: "dist/apps"
       cyclonedx_ignore_npm_errors: true
       npm_audit_omit_dev: true
