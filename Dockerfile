@@ -1,3 +1,4 @@
 FROM nginx:alpine-slim
 RUN apk upgrade --no-cache
-COPY dist/* /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY dist/apps/graphular/browser /usr/share/nginx/html

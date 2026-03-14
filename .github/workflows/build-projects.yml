@@ -25,5 +25,6 @@ jobs:
       build_branch: "run build"
       build_main: "run affected:build --skip-nx-cache"
       artifact_path: "dist/apps"
+      docker_meta: '[{"name":"graphular","file":"Dockerfile"}]'
       cyclonedx_ignore_npm_errors: true
       npm_audit_omit_dev: true
