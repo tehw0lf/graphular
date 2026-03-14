@@ -26,3 +26,4 @@ jobs:
       build_main: "run affected:build --skip-nx-cache"
       artifact_path: "dist"
       cyclonedx_ignore_npm_errors: true
+      npm_audit_omit_dev: true
