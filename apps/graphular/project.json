@@ -7,13 +7,13 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/graphular",
         "index": "apps/graphular/src/index.html",
-        "main": "apps/graphular/src/main.ts",
-        "polyfills": "apps/graphular/src/polyfills.ts",
+        "browser": "apps/graphular/src/main.ts",
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/graphular/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -46,18 +46,15 @@
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "graphular:build:production"
@@ -70,7 +67,7 @@
       "continuous": true
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "@angular/build:extract-i18n",
       "options": {
         "buildTarget": "graphular:build"
       }
