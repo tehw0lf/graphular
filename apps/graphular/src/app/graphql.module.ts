@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { inject, NgModule } from '@angular/core';
 import { ApolloClient, InMemoryCache } from '@apollo/client/core';
 import { provideApollo } from 'apollo-angular';
@@ -15,6 +15,6 @@ export function createApollo(): ApolloClient.Options {
 }
 
 @NgModule({
-  providers: [provideHttpClient(), provideApollo(createApollo)],
+  providers: [provideHttpClient(withXhr()), provideApollo(createApollo)],
 })
 export class GraphQLModule {}
