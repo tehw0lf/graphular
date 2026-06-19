@@ -113,5 +113,9 @@
     ]
   },
   "useInferencePlugins": false,
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "analytics": false,
+  "migrate": {
+    "agentic": true
+  }
 }
