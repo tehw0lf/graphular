@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'graphular',
   preset: '../../jest.preset.js',

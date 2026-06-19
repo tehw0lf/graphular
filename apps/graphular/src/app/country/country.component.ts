@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { Country } from './country.type';
 
@@ -6,6 +6,7 @@ import { Country } from './country.type';
     selector: 'graphular-country',
     templateUrl: './country.component.html',
     styleUrls: ['./country.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CountryComponent {
