@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { map, Observable } from 'rxjs';
 
@@ -18,6 +18,7 @@ const GET_COUNTRIES = gql`
   selector: 'graphular-countries',
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class CountriesComponent implements OnInit {
