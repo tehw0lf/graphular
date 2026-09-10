@@ -22,7 +22,7 @@ jobs:
       tool: "npm"
       format: "run format"
       lint: "run affected:lint"
-      test: "run affected:test --ci --code-coverage"
+      test: "run affected:test -- --configuration=ci"
       build_branch: "run build"
       build_main: "run affected:build --skip-nx-cache"
       artifact_path: "dist/apps"
