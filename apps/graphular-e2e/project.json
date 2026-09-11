@@ -7,19 +7,9 @@
   "implicitDependencies": ["graphular"],
   "targets": {
     "e2e": {
-      "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/graphular-e2e/cypress.config.ts",
-        "devServerTarget": "graphular:serve:development"
-      },
-      "configurations": {
-        "production": {
-          "devServerTarget": "graphular:serve:production"
-        }
+        "config-file": "./cypress.config.ts"
       }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint"
     }
   }
 }
