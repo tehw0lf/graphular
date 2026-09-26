@@ -19,13 +19,13 @@ jobs:
       security-events: write
       pull-requests: write
     with:
-      tool: "npm"
-      format: "run format"
-      lint: "run affected:lint"
-      test: "run affected:test -- --configuration=ci"
-      build_branch: "run build"
-      build_main: "run affected:build --skip-nx-cache"
-      artifact_path: "dist/apps"
+      tool: 'npm'
+      format: 'run format'
+      lint: 'run affected:lint'
+      test: 'run affected:test -- --configuration=ci'
+      build_branch: 'run build'
+      build_main: 'run affected:build --skip-nx-cache'
+      artifact_path: 'dist/apps'
       docker_meta: '[{"name":"graphular","file":"Dockerfile"}]'
       cyclonedx_ignore_npm_errors: true
       npm_audit_omit_dev: true
