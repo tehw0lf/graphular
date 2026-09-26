@@ -1,6 +1,10 @@
 import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
 import { defineConfig } from 'cypress';
 
+// Must match the serve target's port in project.json. Each workspace has its
+// own, so a dev server another repo left running is never reused by mistake.
+const port = 4212;
+
 export default defineConfig({
   e2e: {
     ...nxE2EPreset(__filename, {
@@ -10,7 +14,7 @@ export default defineConfig({
       },
       cypressDir: 'src',
     }),
-    baseUrl: 'http://localhost:4200',
+    baseUrl: `http://localhost:${port}`,
     fixturesFolder: './src/fixtures',
     specPattern: 'src/e2e/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: './src/support/e2e.ts',
