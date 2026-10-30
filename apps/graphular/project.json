@@ -55,11 +55,11 @@
     },
     "serve": {
       "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "continuous": true,
       "options": {
         "port": 4212
       },
-      "defaultConfiguration": "development",
-      "continuous": true,
       "configurations": {
         "production": {
           "buildTarget": "graphular:build:production"
@@ -67,6 +67,9 @@
         "development": {
           "buildTarget": "graphular:build:development"
         }
+      },
+      "readyWhen": {
+        "signal": true
       }
     },
     "extract-i18n": {
