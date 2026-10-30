@@ -123,5 +123,8 @@
         "targetName": "lint"
       }
     }
-  ]
+  ],
+  "affected": {
+    "legacy": true
+  }
 }
